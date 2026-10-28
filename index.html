@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DealSparkBot</title>
+  <meta name="description" content="What the DealSparkBot web crawler reads, how it behaves and how to stop it.">
+  <style>
+    :root { --ink: #0E1726; --muted: #4A5568; --line: #E4E8F0; --bg: #FFFFFF; --code: #F5F7FB; }
+    @media (prefers-color-scheme: dark) { :root { --ink: #EEF1FF; --muted: #AEB4D6; --line: #262A5A; --bg: #0B0D2B; --code: #11143A; } }
+    body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
+    main { max-width: 760px; margin: 0 auto; padding: 32px 16px 48px; }
+    h1 { font-size: 32px; margin: 0 0 8px; }
+    h2 { font-size: 20px; margin: 32px 0 8px; }
+    p, li { color: var(--muted); }
+    ul { padding-left: 20px; }
+    pre { background: var(--code); border: 1px solid var(--line); border-radius: 10px; padding: 14px; overflow-x: auto; color: var(--ink); }
+    footer { margin-top: 40px; border-top: 1px solid var(--line); padding-top: 12px; font-size: 14px; color: var(--muted); }
+  </style>
+</head>
+<body>
+<main>
+  <h1>DealSparkBot</h1>
+  <p>DealSparkBot is the web crawler of DealSpark, a business lead tool that is still in development. It reads public
+    company websites so that business contact details stay correct. This page says what it reads, how it behaves and how to stop it.</p>
+
+  <h2>What it reads</h2>
+  <ul>
+    <li>Your home page and up to four contact, about or team pages: never more than 5 pages per site.</li>
+    <li>Business details only: company name, address, business phone numbers and shared mailboxes such as info@ or sales@.</li>
+    <li>It does not save names of people at present.</li>
+    <li>Never: pages behind a login, forms, captchas, social network profiles, or guessed email addresses.</li>
+  </ul>
+
+  <h2>How it behaves</h2>
+  <ul>
+    <li>It obeys your robots.txt before every page, including after redirects.</li>
+    <li>It waits at least 2 seconds between requests to your site, or longer if your robots.txt sets a Crawl-delay.</li>
+    <li>It stops visiting your site if it gets “403 Forbidden” and slows down on “429 Too Many Requests”.</li>
+    <li>It identifies itself as <code>DealSparkBot</code> with a link to this page.</li>
+  </ul>
+
+  <h2>How to stop it</h2>
+  <p>Add these lines to your robots.txt and the bot will not read your site:</p>
+  <pre>User-agent: DealSparkBot
+Disallow: /</pre>
+  <p>A form to ask us to remove details we already hold is coming soon and will be linked here.</p>
+
+  <footer>DealSpark · DealSparkBot</footer>
+</main>
+</body>
+</html>
